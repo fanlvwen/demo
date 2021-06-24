@@ -1,0 +1,1152 @@
+import Taro from '@tarojs/taro'
+import Nerv, {Component} from 'nervjs'
+import {View, Text} from '@tarojs/components'
+
+
+export default class App extends Component {
+
+  arr = {
+    "A": [{"airportCode": "YIE", "airportName": "伊尔施机场", "airport_py": "yiershi", "cityCode": "aershan", "city3code": "YIE", "catype": "GN", "cityName": "阿尔山", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "RHT", "airportName": "阿拉善右旗机场", "airport_py": "alashanyouqi", "cityCode": "alashanyouqi", "city3code": "RHT", "catype": "GN", "cityName": "阿拉善右旗", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "AXF",
+      "airportName": "阿拉善左旗机场",
+      "airport_py": "alashanzuoqi",
+      "cityCode": "alashanzuoqi",
+      "city3code": "AXF",
+      "catype": "GN",
+      "cityName": "阿拉善左旗",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "AAT", "airportName": "阿勒泰机场", "airport_py": "aletai", "cityCode": "aletai", "city3code": "AAT", "catype": "GN", "cityName": "阿勒泰", "cityShortCode": "alt", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "AOG", "airportName": "鞍山机场", "airport_py": "anshan", "cityCode": "anshan", "city3code": "AOG", "catype": "GN", "cityName": "鞍山", "cityShortCode": "as", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "AKA",
+      "airportName": "富强机场",
+      "airport_py": "fuqiang",
+      "cityCode": "ankang",
+      "city3code": "AKA",
+      "catype": "GN",
+      "cityName": "安康",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "AQG", "airportName": "天柱山机场", "airport_py": "tianzhushan", "cityCode": "anqing", "city3code": "AQG", "catype": "GN", "cityName": "安庆", "cityShortCode": "aq", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "AVA", "airportName": "黄果树机场", "airport_py": "huangguoshu", "cityCode": "anshun", "city3code": "AVA", "catype": "GN", "cityName": "安顺", "cityShortCode": "as1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "AYN",
+      "airportName": "安阳机场",
+      "airport_py": "anyang",
+      "cityCode": "anyang",
+      "city3code": "AYN",
+      "catype": "GN",
+      "cityName": "安阳",
+      "cityShortCode": "ay",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "AKU", "airportName": "阿克苏机场", "airport_py": "akesujichang", "cityCode": "akesu", "city3code": "AKU", "catype": "GN", "cityName": "阿克苏", "cityShortCode": "aks", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "NGQ", "airportName": "阿里昆莎机场", "airport_py": "alikunsha", "cityCode": "ali", "city3code": "NGQ", "catype": "GN", "cityName": "阿里", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}],
+    "B": [{"airportCode": "RLK", "airportName": "天吉泰机场", "airport_py": "tianjitai", "cityCode": "bayannaoer", "city3code": "RLK", "catype": "GN", "cityName": "巴彦淖尔", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "AEB", "airportName": "百色机场", "airport_py": "baise", "cityCode": "baise", "city3code": "AEB", "catype": "GN", "cityName": "百色", "cityShortCode": "bs2", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "BFU",
+      "airportName": "蚌埠机场",
+      "airport_py": "bangbu",
+      "cityCode": "bengbu",
+      "city3code": "BFU",
+      "catype": "GN",
+      "cityName": "蚌埠",
+      "cityShortCode": "bb",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "BAV", "airportName": "包头机场", "airport_py": "baotou", "cityCode": "baotou", "city3code": "BAV", "catype": "GN", "cityName": "包头", "cityShortCode": "bt", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "BSD", "airportName": "保山机场", "airport_py": "baoshan", "cityCode": "baoshan", "city3code": "BSD", "catype": "GN", "cityName": "保山", "cityShortCode": "bs3", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "BHY",
+      "airportName": "福成机场",
+      "airport_py": "fucheng",
+      "cityCode": "beihai",
+      "city3code": "BHY",
+      "catype": "GN",
+      "cityName": "北海",
+      "cityShortCode": "bh",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "PEK", "airportName": "首都国际机场", "airport_py": "shouduguoji", "cityCode": "beijing", "city3code": "PEK", "catype": "GN", "cityName": "北京", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "NAY", "airportName": "南苑机场", "airport_py": "beijingnanyuan", "cityCode": "beijing", "city3code": "PEK", "catype": "GN", "cityName": "北京", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "BFJ",
+      "airportName": "毕节飞雄机场",
+      "airport_py": "bijiefeixiong",
+      "cityCode": "bijie",
+      "city3code": "BFJ",
+      "catype": "GN",
+      "cityName": "毕节",
+      "cityShortCode": "bj2",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "BPL", "airportName": "新疆博乐机场", "airport_py": "xinjiangbole", "cityCode": "bole", "city3code": "BPL", "catype": "GN", "cityName": "博乐", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "NBS", "airportName": "长白山机场", "airport_py": "changbaishan", "cityCode": "baishan", "city3code": "NBS", "catype": "GN", "cityName": "白山", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "KJI",
+      "airportName": "喀纳斯机场",
+      "airport_py": "kanasijichang",
+      "cityCode": "buerjin",
+      "city3code": "KJI",
+      "catype": "GN",
+      "cityName": "布尔津",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "DBC", "airportName": "白城长安机场", "airport_py": "baichengchangan", "cityCode": "baicheng", "city3code": "DBC", "catype": "GN", "cityName": "白城", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "BZX", "airportName": "巴中恩阳机场", "airport_py": "bazhongenyangjichang", "cityCode": "bazhong", "city3code": "BZX", "catype": "GN", "cityName": "巴中", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {
+      "airportCode": "PKX",
+      "airportName": "大兴机场",
+      "airport_py": "beijingdaxingjichang",
+      "cityCode": "beijing",
+      "city3code": "PEK",
+      "catype": "GN",
+      "cityName": "北京",
+      "cityShortCode": "",
+      "countryName": "",
+      "countryName_py": ""
+    }, {"airportCode": "MY2", "airportName": "密云机场", "airport_py": "miyunjichang", "cityCode": "beijing", "city3code": "PEK", "catype": "GN", "cityName": "北京", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "C": [{"airportCode": "BPX", "airportName": "昌都邦达机场", "airport_py": "changdubangda", "cityCode": "changdu", "city3code": "BPX", "catype": "GN", "cityName": "昌都", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "CGD", "airportName": "桃花源机场", "airport_py": "taohuayuan", "cityCode": "changde", "city3code": "CGD", "catype": "GN", "cityName": "常德", "cityShortCode": "cd1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "CZX",
+      "airportName": "奔牛机场",
+      "airport_py": "benniu",
+      "cityCode": "changzhou",
+      "city3code": "CZX",
+      "catype": "GN",
+      "cityName": "常州",
+      "cityShortCode": "cz2",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "CGQ", "airportName": "龙嘉国际机场", "airport_py": "longjiaguoji", "cityCode": "changchun", "city3code": "CGQ", "catype": "GN", "cityName": "长春", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "CNI", "airportName": "长海机场", "airport_py": "changhai", "cityCode": "changhai", "city3code": "CNI", "catype": "GN", "cityName": "长海", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "CSX",
+      "airportName": "黄花机场",
+      "airport_py": "huanghua",
+      "cityCode": "changsha",
+      "city3code": "CSX",
+      "catype": "GN",
+      "cityName": "长沙",
+      "cityShortCode": "cs",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "CIH", "airportName": "王村机场", "airport_py": "wangcun", "cityCode": "changzhi", "city3code": "CIH", "catype": "GN", "cityName": "长治", "cityShortCode": "cz1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "CHG", "airportName": "朝阳机场", "airport_py": "chaoyang", "cityCode": "chaoyang", "city3code": "CHG", "catype": "GN", "cityName": "朝阳", "cityShortCode": "cy", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "CTU",
+      "airportName": "双流国际机场",
+      "airport_py": "shuangliuguoji",
+      "cityCode": "chengdu",
+      "city3code": "CTU",
+      "catype": "GN",
+      "cityName": "成都",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "JUH", "airportName": "九华山机场", "airport_py": "jiuhuashan", "cityCode": "chizhou", "city3code": "JUH", "catype": "GN", "cityName": "池州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "CIF", "airportName": "赤峰机场", "airport_py": "chifeng", "cityCode": "chifeng", "city3code": "CIF", "catype": "GN", "cityName": "赤峰", "cityShortCode": "cf", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "CKG",
+      "airportName": "江北国际机场",
+      "airport_py": "jiangbeiguoji",
+      "cityCode": "chongqing",
+      "city3code": "CKG",
+      "catype": "GN",
+      "cityName": "重庆",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "TFU", "airportName": "天府国际机场", "airport_py": "tianfuguoji", "cityCode": "chengdu", "city3code": "CTU", "catype": "GN", "cityName": "成都", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "CDE", "airportName": "承德普宁机场", "airport_py": "chengdepuning", "cityCode": "chengde", "city3code": "CDE", "catype": "GN", "cityName": "承德", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "CWJ",
+      "airportName": "沧源佤山机场",
+      "airport_py": "cangyuanwashan",
+      "cityCode": "cangyuan",
+      "city3code": "CWJ",
+      "catype": "GN",
+      "cityName": "沧源",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "SWA1", "airportName": "潮汕机场", "airport_py": "chaoshanjichang", "cityCode": "chaozhou", "city3code": "SWA", "catype": "GN", "cityName": "潮州", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "NBS1", "airportName": "长白山机场", "airport_py": "changbaishanjichang", "cityCode": "changbaishan", "city3code": "NBS", "catype": "GN", "cityName": "长白山", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {
+      "airportCode": "LQP",
+      "airportName": "北湖机场",
+      "airport_py": "chenzhoujichang",
+      "cityCode": "chenzhou",
+      "city3code": "LQP",
+      "catype": "GN",
+      "cityName": "郴州",
+      "cityShortCode": "",
+      "countryName": "",
+      "countryName_py": ""
+    }],
+    "D": [{"airportCode": "DAX", "airportName": "河市机场", "airport_py": "heshi", "cityCode": "dazhou", "city3code": "DAX", "catype": "GN", "cityName": "达州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "DLU", "airportName": "大理机场", "airport_py": "dali", "cityCode": "dali", "city3code": "DLU", "catype": "GN", "cityName": "大理", "cityShortCode": "dl1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "DLC",
+      "airportName": "周水子国际机场",
+      "airport_py": "zhoushuiziguoji",
+      "cityCode": "dalian",
+      "city3code": "DLC",
+      "catype": "GN",
+      "cityName": "大连",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "DQA", "airportName": "萨尔图机场", "airport_py": "saertu", "cityCode": "daqing", "city3code": "DQA", "catype": "GN", "cityName": "大庆", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "DAT", "airportName": "云冈机场", "airport_py": "datongyungang", "cityCode": "datong", "city3code": "DAT", "catype": "GN", "cityName": "大同", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "DDG",
+      "airportName": "浪头国际机场",
+      "airport_py": "langtouguoji",
+      "cityCode": "dandong",
+      "city3code": "DDG",
+      "catype": "GN",
+      "cityName": "丹东",
+      "cityShortCode": "dd",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "DCY", "airportName": "稻城亚丁机场", "airport_py": "daochengyading", "cityCode": "daocheng", "city3code": "DCY", "catype": "GN", "cityName": "稻城", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "DIG", "airportName": "香格里拉机场", "airport_py": "diqingxianggelila", "cityCode": "diqing", "city3code": "DIG", "catype": "GN", "cityName": "迪庆", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "DOY",
+      "airportName": "胜利机场",
+      "airport_py": "dongyingyongan",
+      "cityCode": "dongying",
+      "city3code": "DOY",
+      "catype": "GN",
+      "cityName": "东营",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "DNH", "airportName": "酒泉敦煌机场", "airport_py": "jiuquandunhuang", "cityCode": "dunhuang", "city3code": "DNH", "catype": "GN", "cityName": "敦煌", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "HXD", "airportName": "德令哈机场", "airport_py": "delingha", "cityCode": "delingha", "city3code": "HXD", "catype": "GN", "cityName": "德令哈", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "LUM",
+      "airportName": "德宏芒市机场",
+      "airport_py": "dehongmangshijichang",
+      "cityCode": "dehong",
+      "city3code": "LUM",
+      "catype": "GN",
+      "cityName": "德宏",
+      "cityShortCode": "",
+      "countryName": "",
+      "countryName_py": ""
+    }],
+    "E": [{"airportCode": "EJN", "airportName": "额济纳旗机场", "airport_py": "ejinaqi", "cityCode": "ejinaqi", "city3code": "EJN", "catype": "GN", "cityName": "额济纳旗", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "DSN", "airportName": "伊金霍洛国际机场", "airport_py": "eerduosi", "cityCode": "eerduosi", "city3code": "DSN", "catype": "GN", "cityName": "鄂尔多斯", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "ENH",
+      "airportName": "恩施机场",
+      "airport_py": "enshi",
+      "cityCode": "enshi",
+      "city3code": "ENH",
+      "catype": "GN",
+      "cityName": "恩施",
+      "cityShortCode": "es",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "ERL", "airportName": "赛乌苏国际机场", "airport_py": "saiwusuguoji", "cityCode": "erlianhaote", "city3code": "ERL", "catype": "GN", "cityName": "二连浩特", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}],
+    "F": [{"airportCode": "FUO", "airportName": "沙堤机场", "airport_py": "foshan", "cityCode": "foshan", "city3code": "FUO", "catype": "GN", "cityName": "佛山", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "FOC", "airportName": "长乐国际机场", "airport_py": "changleguoji", "cityCode": "fuzhou", "city3code": "FOC", "catype": "GN", "cityName": "福州", "cityShortCode": "fz", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "FYJ",
+      "airportName": "东极机场",
+      "airport_py": "fuyuandongji",
+      "cityCode": "fuyuan",
+      "city3code": "FYJ",
+      "catype": "GN",
+      "cityName": "抚远",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "FUG", "airportName": "阜阳机场", "airport_py": "fuyang", "cityCode": "fuyang", "city3code": "FUG", "catype": "GN", "cityName": "阜阳", "cityShortCode": "fy", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "FYN", "airportName": "可可托海机场", "airport_py": "keketuohai", "cityCode": "fuyun", "city3code": "FYN", "catype": "GN", "cityName": "富蕴", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}],
+    "G": [{"airportCode": "KOW", "airportName": "黄金机场", "airport_py": "huangjin", "cityCode": "ganzhou", "city3code": "KOW", "catype": "GN", "cityName": "赣州", "cityShortCode": "gz", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "GOQ", "airportName": "格尔木机场", "airport_py": "geermu", "cityCode": "geermu", "city3code": "GOQ", "catype": "GN", "cityName": "格尔木", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "GYU",
+      "airportName": "固原六盘山机场",
+      "airport_py": "guyuanliupanshan",
+      "cityCode": "guyuan",
+      "city3code": "GYU",
+      "catype": "GN",
+      "cityName": "固原",
+      "cityShortCode": "gy",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "GHN", "airportName": "广汉机场", "airport_py": "guanghan", "cityCode": "guanghan", "city3code": "GHN", "catype": "GN", "cityName": "广汉", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "GYS", "airportName": "广元盘龙机场", "airport_py": "guangyuanpanlong", "cityCode": "guangyuan", "city3code": "GYS", "catype": "GN", "cityName": "广元", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "CAN",
+      "airportName": "白云国际机场",
+      "airport_py": "xinbaiyunguoji",
+      "cityCode": "guangzhou",
+      "city3code": "CAN",
+      "catype": "GN",
+      "cityName": "广州",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "KWL", "airportName": "两江国际机场", "airport_py": "liangjiangguoji", "cityCode": "guilin", "city3code": "KWL", "catype": "GN", "cityName": "桂林", "cityShortCode": "gl", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "KWE", "airportName": "龙洞堡机场", "airport_py": "longdongbao", "cityCode": "guiyang", "city3code": "KWE", "catype": "GN", "cityName": "贵阳", "cityShortCode": "gy2", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "GMQ",
+      "airportName": "果洛玛沁机场",
+      "airport_py": "guoluomaqin",
+      "cityCode": "guoluo",
+      "city3code": "GMQ",
+      "catype": "GN",
+      "cityName": "果洛",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "GH1", "airportName": "敖鲁古雅机场", "airport_py": "aoluguyajichang", "cityCode": "genhe", "city3code": "GH1", "catype": "GN", "cityName": "根河", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "GZG", "airportName": "甘孜格萨尔机场", "airport_py": "ganzigesaerjichang", "cityCode": "ganzi", "city3code": "GZG", "catype": "GN", "cityName": "甘孜", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "H": [{"airportCode": "HRB", "airportName": "太平国际机场", "airport_py": "taipingguoji", "cityCode": "haerbin", "city3code": "HRB", "catype": "GN", "cityName": "哈尔滨", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "HMI", "airportName": "哈密机场", "airport_py": "hami", "cityCode": "hami", "city3code": "HMI", "catype": "GN", "cityName": "哈密", "cityShortCode": "hm", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HAK",
+      "airportName": "美兰机场",
+      "airport_py": "meilan",
+      "cityCode": "haikou",
+      "city3code": "HAK",
+      "catype": "GN",
+      "cityName": "海口",
+      "cityShortCode": "hk",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "HLD", "airportName": "东山机场", "airport_py": "dongshan", "cityCode": "hailaer", "city3code": "HLD", "catype": "GN", "cityName": "海拉尔", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "HDG", "airportName": "邯郸机场", "airport_py": "handan", "cityCode": "handan", "city3code": "HDG", "catype": "GN", "cityName": "邯郸", "cityShortCode": "hd", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HZG",
+      "airportName": "城固机场",
+      "airport_py": "chenggu",
+      "cityCode": "hanzhong",
+      "city3code": "HZG",
+      "catype": "GN",
+      "cityName": "汉中",
+      "cityShortCode": "hz5",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "HGH", "airportName": "萧山国际机场", "airport_py": "xiaoshan", "cityCode": "hangzhou", "city3code": "HGH", "catype": "GN", "cityName": "杭州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "HTN", "airportName": "和田机场", "airport_py": "hetian", "cityCode": "hetian", "city3code": "HTN", "catype": "GN", "cityName": "和田", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HFE",
+      "airportName": "新桥国际机场",
+      "airport_py": "xinqiaoguoji",
+      "cityCode": "hefei",
+      "city3code": "HFE",
+      "catype": "GN",
+      "cityName": "合肥",
+      "cityShortCode": "hf",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "HCJ", "airportName": "河池金城江机场", "airport_py": "hechijinchengjiang", "cityCode": "hechi", "city3code": "HCJ", "catype": "GN", "cityName": "河池", "cityShortCode": "hc", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "HEK", "airportName": "黑河机场", "airport_py": "heihe", "cityCode": "heihe", "city3code": "HEK", "catype": "GN", "cityName": "黑河", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HNY",
+      "airportName": "南岳机场",
+      "airport_py": "nanyue",
+      "cityCode": "hengyang",
+      "city3code": "HNY",
+      "catype": "GN",
+      "cityName": "衡阳",
+      "cityShortCode": "hy",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "AHJ", "airportName": "阿坝红原机场", "airport_py": "abahongyuan", "cityCode": "hongyuan", "city3code": "AHJ", "catype": "GN", "cityName": "红原", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "HET", "airportName": "白塔机场", "airport_py": "baita", "cityCode": "huhehaote", "city3code": "HET", "catype": "GN", "cityName": "呼和浩特", "cityShortCode": "hhht", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HJJ",
+      "airportName": "芷江机场",
+      "airport_py": "zuojiang",
+      "cityCode": "huaihua",
+      "city3code": "HJJ",
+      "catype": "GN",
+      "cityName": "怀化",
+      "cityShortCode": "hh1",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "HIA", "airportName": "涟水机场", "airport_py": "lianshui", "cityCode": "huaian", "city3code": "HIA", "catype": "GN", "cityName": "淮安", "cityShortCode": "ha", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "TXN", "airportName": "屯溪机场", "airport_py": "tunxi", "cityCode": "huangshan", "city3code": "TXN", "catype": "GN", "cityName": "黄山", "cityShortCode": "hs1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HUZ",
+      "airportName": "惠州机场",
+      "airport_py": "huizhou",
+      "cityCode": "huizhou",
+      "city3code": "HUZ",
+      "catype": "GN",
+      "cityName": "惠州",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "HTT", "airportName": "花土沟机场", "airport_py": "huatugoujichang", "cityCode": "huatugou", "city3code": "HTT", "catype": "GN", "cityName": "花土沟", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HUO",
+      "airportName": "霍林郭勒霍林河机场",
+      "airport_py": "huolinguolehuolinhe",
+      "cityCode": "huolinguole",
+      "city3code": "HUO",
+      "catype": "GN",
+      "cityName": "霍林郭勒",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "XRQ", "airportName": "新巴尔虎右旗宝格德机场", "airport_py": "xinbaerhuyouqibaogedejichang", "cityCode": "hulunbeier", "city3code": "XRQ", "catype": "GN", "cityName": "呼伦贝尔", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "HZA", "airportName": "牡丹机场", "airport_py": "mudanjichang", "cityCode": "heze", "city3code": "HZA", "catype": "GN", "cityName": "菏泽", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "J": [{"airportCode": "JXA", "airportName": "兴凯湖机场", "airport_py": "xingkaihu", "cityCode": "jixi", "city3code": "JXA", "catype": "GN", "cityName": "鸡西", "cityShortCode": "jx", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "KNC", "airportName": "吉安机场", "airport_py": "jian", "cityCode": "jian", "city3code": "KNC", "catype": "GN", "cityName": "吉安", "cityShortCode": "ja", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "JIL",
+      "airportName": "二台子机场",
+      "airport_py": "ertaizi",
+      "cityCode": "jilin",
+      "city3code": "JIL",
+      "catype": "GN",
+      "cityName": "吉林",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "TNA", "airportName": "遥墙机场", "airport_py": "yaoqiang", "cityCode": "jinan", "city3code": "TNA", "catype": "GN", "cityName": "济南", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "JNG", "airportName": "济宁机场", "airport_py": "jining", "cityCode": "jining", "city3code": "JNG", "catype": "GN", "cityName": "济宁", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "JGN",
+      "airportName": "嘉峪关机场",
+      "airport_py": "jiayuguan",
+      "cityCode": "jiayuguan",
+      "city3code": "JGN",
+      "catype": "GN",
+      "cityName": "嘉峪关",
+      "cityShortCode": "jyg",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "JMU", "airportName": "东郊机场", "airport_py": "dongjiao", "cityCode": "jiamusi", "city3code": "JMU", "catype": "GN", "cityName": "佳木斯", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "JGD", "airportName": "加格达奇机场", "airport_py": "jiagedaqi", "cityCode": "jiagedaqi", "city3code": "JGD", "catype": "GN", "cityName": "加格达奇", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "SWA",
+      "airportName": "揭阳潮汕机场",
+      "airport_py": "jieyangchaoshan",
+      "cityCode": "jieyang",
+      "city3code": "SWA",
+      "catype": "GN",
+      "cityName": "揭阳",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "JIC", "airportName": "金昌机场", "airport_py": "jinchang", "cityCode": "jinchang", "city3code": "JIC", "catype": "GN", "cityName": "金昌", "cityShortCode": "jc1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "JNZ", "airportName": "锦州湾机场", "airport_py": "xiaolingzi", "cityCode": "jinzhou", "city3code": "JNZ", "catype": "GN", "cityName": "锦州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "SHS",
+      "airportName": "沙市机场",
+      "airport_py": "shashi",
+      "cityCode": "jingzhou",
+      "city3code": "SHS",
+      "catype": "GN",
+      "cityName": "荆州",
+      "cityShortCode": "jz3",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "JGS", "airportName": "井冈山机场", "airport_py": "jinggangshan", "cityCode": "jinggangshan", "city3code": "JGS", "catype": "GN", "cityName": "井冈山", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "JDZ", "airportName": "罗家机场", "airport_py": "luojia", "cityCode": "jingdezhen", "city3code": "JDZ", "catype": "GN", "cityName": "景德镇", "cityShortCode": "jdz", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "JIU",
+      "airportName": "庐山机场",
+      "airport_py": "lushan",
+      "cityCode": "jiujiang",
+      "city3code": "JIU",
+      "catype": "GN",
+      "cityName": "九江",
+      "cityShortCode": "jj",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "JZH", "airportName": "黄龙机场", "airport_py": "huanglong", "cityCode": "jiuzhaigou", "city3code": "JZH", "catype": "GN", "cityName": "九寨沟", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "CHW", "airportName": "酒泉机场", "airport_py": "jiuquan", "cityCode": "jiuquan", "city3code": "CHW", "catype": "GN", "cityName": "酒泉", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "JSJ",
+      "airportName": "建三江湿地机场",
+      "airport_py": "jiansanjiangshidijiang",
+      "cityCode": "jiansanjiang",
+      "city3code": "JSJ",
+      "catype": "GN",
+      "cityName": "建三江",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "JM1", "airportName": "荆门漳河机场", "airport_py": "jingmenzhanghejichang", "cityCode": "jingmen", "city3code": "JM1", "catype": "GN", "cityName": "荆门", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "SH1", "airportName": "三合屯通用机场", "airport_py": "sanhetun", "cityCode": "jiamusi", "city3code": "SH1", "catype": "GN", "cityName": "佳木斯", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {
+      "airportCode": "JDE",
+      "airportName": "千岛湖通用机场",
+      "airport_py": "qiandaohutongyong",
+      "cityCode": "jiande",
+      "city3code": "JDE",
+      "catype": "GN",
+      "cityName": "建德",
+      "cityShortCode": "",
+      "countryName": "",
+      "countryName_py": ""
+    }],
+    "K": [{"airportCode": "KHG", "airportName": "喀什机场", "airport_py": "kashi", "cityCode": "kashi", "city3code": "KHG", "catype": "GN", "cityName": "喀什", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "KJH", "airportName": "黄平机场", "airport_py": "huangping", "cityCode": "kaili", "city3code": "KJH", "catype": "GN", "cityName": "凯里", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "KGT",
+      "airportName": "康定机场",
+      "airport_py": "kangding",
+      "cityCode": "kangding",
+      "city3code": "KGT",
+      "catype": "GN",
+      "cityName": "康定",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "KRY", "airportName": "克拉玛依机场", "airport_py": "kelamayi", "cityCode": "kelamayi", "city3code": "KRY", "catype": "GN", "cityName": "克拉玛依", "cityShortCode": "klmy", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "KCA", "airportName": "库车机场", "airport_py": "kuche", "cityCode": "kuche", "city3code": "KCA", "catype": "GN", "cityName": "库车", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "KRL",
+      "airportName": "库尔勒机场",
+      "airport_py": "kuerle",
+      "cityCode": "kuerle",
+      "city3code": "KRL",
+      "catype": "GN",
+      "cityName": "库尔勒",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "KMG", "airportName": "长水国际机场", "airport_py": "changshuiguoji", "cityCode": "kunming", "city3code": "KMG", "catype": "GN", "cityName": "昆明", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}],
+    "L": [{"airportCode": "LXA", "airportName": "贡嘎机场", "airport_py": "gongga", "cityCode": "lasa", "city3code": "LXA", "catype": "GN", "cityName": "拉萨", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "LHW", "airportName": "中川机场", "airport_py": "zhongchuan", "cityCode": "lanzhou", "city3code": "LHW", "catype": "GN", "cityName": "兰州", "cityShortCode": "lz1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HZH",
+      "airportName": "黎平机场",
+      "airport_py": "liping",
+      "cityCode": "liping",
+      "city3code": "HZH",
+      "catype": "GN",
+      "cityName": "黎平",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "LLB", "airportName": "荔波机场", "airport_py": "libo", "cityCode": "libo", "city3code": "LLB", "catype": "GN", "cityName": "荔波", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "LJG", "airportName": "三义机场", "airport_py": "sanyi", "cityCode": "lijiang", "city3code": "LJG", "catype": "GN", "cityName": "丽江", "cityShortCode": "lj", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "LCX",
+      "airportName": "龙岩冠豸山机场",
+      "airport_py": "longyanguanzhaishan",
+      "cityCode": "longyan",
+      "city3code": "LCX",
+      "catype": "GN",
+      "cityName": "龙岩",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "LYG", "airportName": "白塔埠机场", "airport_py": "baitabu", "cityCode": "lianyungang", "city3code": "LYG", "catype": "GN", "cityName": "连云港", "cityShortCode": "lyg", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "LIA", "airportName": "梁平机场", "airport_py": "liangping", "cityCode": "liangping", "city3code": "LIA", "catype": "GN", "cityName": "梁平", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "LZY",
+      "airportName": "林芝米林机场",
+      "airport_py": "linzhimilin",
+      "cityCode": "linzhi",
+      "city3code": "LZY",
+      "catype": "GN",
+      "cityName": "林芝",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "LNJ", "airportName": "临沧机场", "airport_py": "lincang", "cityCode": "lincang", "city3code": "LNJ", "catype": "GN", "cityName": "临沧", "cityShortCode": "lc1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "LYI", "airportName": "临沂机场", "airport_py": "linyi", "cityCode": "linyi", "city3code": "LYI", "catype": "GN", "cityName": "临沂", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "LZH",
+      "airportName": "白莲机场",
+      "airport_py": "bailian",
+      "cityCode": "liuzhou",
+      "city3code": "LZH",
+      "catype": "GN",
+      "cityName": "柳州",
+      "cityShortCode": "lz",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "LPF", "airportName": "六盘水月照机场", "airport_py": "liupanshuiyuezhao", "cityCode": "liupanshui", "city3code": "LPF", "catype": "GN", "cityName": "六盘水", "cityShortCode": "lps", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "LLV", "airportName": "吕梁大武机场", "airport_py": "lvliangdawu", "cityCode": "lvliang", "city3code": "LLV", "catype": "GN", "cityName": "吕梁", "cityShortCode": "ll", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "LYA",
+      "airportName": "洛阳机场",
+      "airport_py": "luoyang",
+      "cityCode": "luoyang",
+      "city3code": "LYA",
+      "catype": "GN",
+      "cityName": "洛阳",
+      "cityShortCode": "ly4",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "LZO", "airportName": "云龙机场", "airport_py": "lantian", "cityCode": "luzhou", "city3code": "LZO", "catype": "GN", "cityName": "泸州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "LFQ", "airportName": "临汾尧都机场", "airport_py": "linfenyaodu", "cityCode": "linfen", "city3code": "LFQ", "catype": "GN", "cityName": "临汾", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "JMJ",
+      "airportName": "景迈机场",
+      "airport_py": "lancangjingmai",
+      "cityCode": "lancang",
+      "city3code": "JMJ",
+      "catype": "GN",
+      "cityName": "澜沧",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "LNL", "airportName": "陇南成县机场", "airport_py": "longnanchengxian", "cityCode": "longnan", "city3code": "LNL", "catype": "GN", "cityName": "陇南", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}],
+    "M": [{"airportCode": "NZH", "airportName": "满洲里机场", "airport_py": "manzhouli", "cityCode": "manzhouli", "city3code": "NZH", "catype": "GN", "cityName": "满洲里", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "LUM", "airportName": "芒市机场", "airport_py": "mangshi", "cityCode": "mangshi", "city3code": "LUM", "catype": "GN", "cityName": "芒市", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "MXZ",
+      "airportName": "梅州机场",
+      "airport_py": "meizhou",
+      "cityCode": "meizhou",
+      "city3code": "MXZ",
+      "catype": "GN",
+      "cityName": "梅州",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "MIG", "airportName": "南郊机场", "airport_py": "nanjiao", "cityCode": "mianyang", "city3code": "MIG", "catype": "GN", "cityName": "绵阳", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "OHE", "airportName": "漠河机场", "airport_py": "mohe", "cityCode": "mohe", "city3code": "OHE", "catype": "GN", "cityName": "漠河", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "MDG",
+      "airportName": "海浪机场",
+      "airport_py": "hailang",
+      "cityCode": "mudanjiang",
+      "city3code": "MDG",
+      "catype": "GN",
+      "cityName": "牡丹江",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }],
+    "N": [{"airportCode": "KHN", "airportName": "昌北机场", "airport_py": "changbei", "cityCode": "nanchang", "city3code": "KHN", "catype": "GN", "cityName": "南昌", "cityShortCode": "nc", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "NAO", "airportName": "南充机场", "airport_py": "nanchong", "cityCode": "nanchong", "city3code": "NAO", "catype": "GN", "cityName": "南充", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "NKG",
+      "airportName": "禄口国际机场",
+      "airport_py": "lukouguoji",
+      "cityCode": "nanjing",
+      "city3code": "NKG",
+      "catype": "GN",
+      "cityName": "南京",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "NNG", "airportName": "吴圩机场", "airport_py": "wuzuo", "cityCode": "nanning", "city3code": "NNG", "catype": "GN", "cityName": "南宁", "cityShortCode": "nn", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "NTG", "airportName": "兴东机场", "airport_py": "xingdong", "cityCode": "nantong", "city3code": "NTG", "catype": "GN", "cityName": "南通", "cityShortCode": "nt", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "NNY",
+      "airportName": "姜营机场",
+      "airport_py": "jiangying",
+      "cityCode": "nanyang",
+      "city3code": "NNY",
+      "catype": "GN",
+      "cityName": "南阳",
+      "cityShortCode": "ny",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "NGB", "airportName": "栎社国际机场", "airport_py": "zuosheguoji", "cityCode": "ningbo", "city3code": "NGB", "catype": "GN", "cityName": "宁波", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "NLH", "airportName": "宁蒗泸沽湖机场", "airport_py": "ninglangluguhu", "cityCode": "ninglang", "city3code": "NLH", "catype": "GN", "cityName": "宁蒗", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "NJ3",
+      "airportName": "墨尔根通用机场",
+      "airport_py": "moergentongyongjichang",
+      "cityCode": "nenjiang",
+      "city3code": "NJ3",
+      "catype": "GN",
+      "cityName": "嫩江",
+      "cityShortCode": "",
+      "countryName": "",
+      "countryName_py": ""
+    }],
+    "P": [{"airportCode": "PZI", "airportName": "保安营机场", "airport_py": "baoanying", "cityCode": "panzhihua", "city3code": "PZI", "catype": "GN", "cityName": "攀枝花", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "SYM", "airportName": "普洱机场", "airport_py": "puer", "cityCode": "puer", "city3code": "SYM", "catype": "GN", "cityName": "普洱", "cityShortCode": "pe", "countryName": "中国", "countryName_py": "ZHONGGUO"}],
+    "Q": [{"airportCode": "NDG", "airportName": "三家子机场", "airport_py": "sanjiazi", "cityCode": "qiqihaer", "city3code": "NDG", "catype": "GN", "cityName": "齐齐哈尔", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "JIQ", "airportName": "武陵山机场", "airport_py": "wulingshan", "cityCode": "qianjiang", "city3code": "JIQ", "catype": "GN", "cityName": "黔江", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "IQM",
+      "airportName": "且末玉都机场",
+      "airport_py": "qiemoyudujichang",
+      "cityCode": "qiemo",
+      "city3code": "IQM",
+      "catype": "GN",
+      "cityName": "且末",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "BPE", "airportName": "北戴河机场", "airport_py": "beidaihe", "cityCode": "qinhuangdao", "city3code": "BPE", "catype": "GN", "cityName": "秦皇岛", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "TAO", "airportName": "流亭国际机场", "airport_py": "liutingguoji", "cityCode": "qingdao", "city3code": "TAO", "catype": "GN", "cityName": "青岛", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "IQN",
+      "airportName": "庆阳机场",
+      "airport_py": "qingyang",
+      "cityCode": "qingyang",
+      "city3code": "IQN",
+      "catype": "GN",
+      "cityName": "庆阳",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "JUZ", "airportName": "衢州机场", "airport_py": "zuozhou", "cityCode": "quzhou", "city3code": "JUZ", "catype": "GN", "cityName": "衢州", "cityShortCode": "qz", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "JJN", "airportName": "晋江机场", "airport_py": "jinjiang", "cityCode": "quanzhou", "city3code": "JJN", "catype": "GN", "cityName": "泉州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "BAR",
+      "airportName": "琼海博鳌机场",
+      "airport_py": "qionghaiboao",
+      "cityCode": "qionghai",
+      "city3code": "BAR",
+      "catype": "GN",
+      "cityName": "琼海",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "HBQ", "airportName": "海北机场", "airport_py": "haibeijichang", "cityCode": "qilian", "city3code": "HBQ", "catype": "GN", "cityName": "祁连", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "SHP", "airportName": "山海关机场", "airport_py": "shanhaiguanjichang", "cityCode": "qinhuangdao", "city3code": "BPE", "catype": "GN", "cityName": "秦皇岛", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "R": [{"airportCode": "RKZ", "airportName": "日喀则和平机场", "airport_py": "rikazeheping", "cityCode": "rikaze", "city3code": "RKZ", "catype": "GN", "cityName": "日喀则", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "RUG", "airportName": "如皋机场", "airport_py": "rugao", "cityCode": "rugao", "city3code": "RUG", "catype": "GN", "cityName": "如皋", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "RIZ",
+      "airportName": "日照山字河机场",
+      "airport_py": "rizhaoshanzihe",
+      "cityCode": "rizhao",
+      "city3code": "RIZ",
+      "catype": "GN",
+      "cityName": "日照",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "RQA", "airportName": "楼兰机场", "airport_py": "loulanjichang", "cityCode": "ruoqiang", "city3code": "RQA", "catype": "GN", "cityName": "若羌", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "S": [{"airportCode": "SYX", "airportName": "凤凰国际机场", "airport_py": "fenghuangguoji", "cityCode": "sanya", "city3code": "SYX", "catype": "GN", "cityName": "三亚", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "SHF", "airportName": "花园机场", "airport_py": "huayuan", "cityCode": "shihezi", "city3code": "SHF", "catype": "GN", "cityName": "石河子", "cityShortCode": "shz", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "PVG",
+      "airportName": "上海浦东国际机场",
+      "airport_py": "shanghaipudongguoji",
+      "cityCode": "shanghai",
+      "city3code": "SHA",
+      "catype": "GN",
+      "cityName": "上海",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "SHA", "airportName": "上海虹桥国际机场", "airport_py": "shanghaihongqiaoguoji", "cityCode": "shanghai", "city3code": "SHA", "catype": "GN", "cityName": "上海", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "SZX", "airportName": "宝安国际机场", "airport_py": "baoanguoji", "cityCode": "shenzhen", "city3code": "SZX", "catype": "GN", "cityName": "深圳", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HPG",
+      "airportName": "神农架机场",
+      "airport_py": "shennongjia",
+      "cityCode": "shennongjia",
+      "city3code": "HPG",
+      "catype": "GN",
+      "cityName": "神农架",
+      "cityShortCode": "snj",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "SHE", "airportName": "桃仙国际机场", "airport_py": "taoxianguoji", "cityCode": "shenyang", "city3code": "SHE", "catype": "GN", "cityName": "沈阳", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "SJW", "airportName": "正定机场", "airport_py": "zhengding", "cityCode": "shijiazhuang", "city3code": "SJW", "catype": "GN", "cityName": "石家庄", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "SZV",
+      "airportName": "苏州机场",
+      "airport_py": "suzhou",
+      "cityCode": "suzhou",
+      "city3code": "SZV",
+      "catype": "GN",
+      "cityName": "苏州",
+      "cityShortCode": "sz1",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "WDS", "airportName": "武当山机场", "airport_py": "wudangshan", "cityCode": "shiyan", "city3code": "WDS", "catype": "GN", "cityName": "十堰", "cityShortCode": "sy2", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "SQJ", "airportName": "三明沙县机场", "airport_py": "sanmingshaxian", "cityCode": "sanming", "city3code": "SQJ", "catype": "GN", "cityName": "三明", "cityShortCode": "sm", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "SQD",
+      "airportName": "上饶三清山机场",
+      "airport_py": "shangraosanqingshan",
+      "cityCode": "shangrao",
+      "city3code": "SQD",
+      "catype": "GN",
+      "cityName": "上饶",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "WGN", "airportName": "邵阳武冈机场", "airport_py": "shaoyangwugang", "cityCode": "shaoyang", "city3code": "WGN", "catype": "GN", "cityName": "邵阳", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "QSZ", "airportName": "莎车机场", "airport_py": "shachejichang", "cityCode": "shache", "city3code": "QSZ", "catype": "GN", "cityName": "莎车", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "YSQ",
+      "airportName": "松原查干湖机场",
+      "airport_py": "chaganhujichang",
+      "cityCode": "songyuan",
+      "city3code": "YSQ",
+      "catype": "GN",
+      "cityName": "松原",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "SWA2", "airportName": "潮汕机场", "airport_py": "chaoshanjichang", "cityCode": "shantou", "city3code": "SWA", "catype": "GN", "cityName": "汕头", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "T": [{"airportCode": "TCG", "airportName": "塔城机场", "airport_py": "tacheng", "cityCode": "tacheng", "city3code": "TCG", "catype": "GN", "cityName": "塔城", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "TYN", "airportName": "武宿国际机场", "airport_py": "wusuguoji", "cityCode": "taiyuan", "city3code": "TYN", "catype": "GN", "cityName": "太原", "cityShortCode": "ty", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "TVS",
+      "airportName": "三女河机场",
+      "airport_py": "sannvhe",
+      "cityCode": "tangshan",
+      "city3code": "TVS",
+      "catype": "GN",
+      "cityName": "唐山",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "TCZ", "airportName": "腾冲机场", "airport_py": "tengchong", "cityCode": "tengchong", "city3code": "TCZ", "catype": "GN", "cityName": "腾冲", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "TSN", "airportName": "滨海国际机场", "airport_py": "binhaiguoji", "cityCode": "tianjin", "city3code": "TSN", "catype": "GN", "cityName": "天津", "cityShortCode": "tj", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "THQ",
+      "airportName": "天水机场",
+      "airport_py": "tianshui",
+      "cityCode": "tianshui",
+      "city3code": "THQ",
+      "catype": "GN",
+      "cityName": "天水",
+      "cityShortCode": "ts1",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "TNH", "airportName": "通化机场", "airport_py": "tonghua", "cityCode": "tonghua", "city3code": "TNH", "catype": "GN", "cityName": "通化", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "TGO", "airportName": "通辽机场", "airport_py": "tongliao", "cityCode": "tongliao", "city3code": "TGO", "catype": "GN", "cityName": "通辽", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "TEN",
+      "airportName": "凤凰机场",
+      "airport_py": "fenghuang",
+      "cityCode": "tongren",
+      "city3code": "TEN",
+      "catype": "GN",
+      "cityName": "铜仁",
+      "cityShortCode": "tr",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "TLQ", "airportName": "交河机场", "airport_py": "jiaohe", "cityCode": "tulufan", "city3code": "TLQ", "catype": "GN", "cityName": "吐鲁番", "cityShortCode": "tlf1", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "YTY1", "airportName": "扬州泰州机场", "airport_py": "yangzhoutaizhou", "cityCode": "taizhou2", "city3code": "YTY", "catype": "GN", "cityName": "泰州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "HYN",
+      "airportName": "路桥机场",
+      "airport_py": "luqiao",
+      "cityCode": "taizhou",
+      "city3code": "HYN",
+      "catype": "GN",
+      "cityName": "台州",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "TWC", "airportName": "图木舒克唐王城机场", "airport_py": "tumushuketangwangcheng", "cityCode": "tumushuke", "city3code": "TWC", "catype": "GN", "cityName": "图木舒克", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "TYC", "airportName": "尧城通用机场", "airport_py": "yaochengtongyongjichang", "cityCode": "taiyuan", "city3code": "TYN", "catype": "GN", "cityName": "太原", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "W": [{"airportCode": "WXN", "airportName": "万州五桥机场", "airport_py": "wanzhouwuqiaojichang", "cityCode": "wanzhou", "city3code": "WXN", "catype": "GN", "cityName": "万州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "WEH", "airportName": "大水泊机场", "airport_py": "dashuibo", "cityCode": "weihai", "city3code": "WEH", "catype": "GN", "cityName": "威海", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "WEF",
+      "airportName": "潍坊机场",
+      "airport_py": "weifangjichang",
+      "cityCode": "weifang",
+      "city3code": "WEF",
+      "catype": "GN",
+      "cityName": "潍坊",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "WNZ", "airportName": "龙湾机场", "airport_py": "longwan", "cityCode": "wenzhou", "city3code": "WNZ", "catype": "GN", "cityName": "温州", "cityShortCode": "wz", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "WNH", "airportName": "文山普者黑机场", "airport_py": "wenshanpuzhehei", "cityCode": "wenshan", "city3code": "WNH", "catype": "GN", "cityName": "文山", "cityShortCode": "ws", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "WUA",
+      "airportName": "乌海机场",
+      "airport_py": "wuhai",
+      "cityCode": "wuhai",
+      "city3code": "WUA",
+      "catype": "GN",
+      "cityName": "乌海",
+      "cityShortCode": "wh",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "HLH", "airportName": "乌兰浩特机场", "airport_py": "wulanhaote", "cityCode": "wulanhaote", "city3code": "HLH", "catype": "GN", "cityName": "乌兰浩特", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "URC", "airportName": "地窝堡机场", "airport_py": "diwobao", "cityCode": "wulumuqi", "city3code": "URC", "catype": "GN", "cityName": "乌鲁木齐", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "WUX",
+      "airportName": "苏南硕放机场",
+      "airport_py": "sunanshuofang",
+      "cityCode": "wuxi",
+      "city3code": "WUX",
+      "catype": "GN",
+      "cityName": "无锡",
+      "cityShortCode": "wx",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "WUZ", "airportName": "西江机场", "airport_py": "xijiangjichang", "cityCode": "wuzhou", "city3code": "WUZ", "catype": "GN", "cityName": "梧州", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "WUH", "airportName": "天河机场", "airport_py": "tianhe", "cityCode": "wuhan", "city3code": "WUH", "catype": "GN", "cityName": "武汉", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "WUS",
+      "airportName": "武夷山机场",
+      "airport_py": "wuyishan",
+      "cityCode": "wuyishan",
+      "city3code": "WUS",
+      "catype": "GN",
+      "cityName": "武夷山",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "UCB", "airportName": "乌兰察布机场", "airport_py": "wulanchabujichang", "cityCode": "wulanchabu", "city3code": "UCB", "catype": "GN", "cityName": "乌兰察布", "cityShortCode": "wlcb", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "DTU",
+      "airportName": "五大连池德都机场",
+      "airport_py": "五大连池dedujichang",
+      "cityCode": "wudalianchi",
+      "city3code": "DTU",
+      "catype": "GN",
+      "cityName": "五大连池",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "WZQ", "airportName": "乌拉特中旗通用机场", "airport_py": "wulatezhongqi", "cityCode": "wulatezhongqi", "city3code": "WZQ", "catype": "GN", "cityName": "乌拉特中旗", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "WSK", "airportName": "巫山机场", "airport_py": "wushanjichang", "cityCode": "wushan", "city3code": "WSK", "catype": "GN", "cityName": "巫山", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {
+      "airportCode": "WHA",
+      "airportName": "芜湖宣州机场",
+      "airport_py": "wuhuxuanzhoujichang",
+      "cityCode": "wuhu",
+      "city3code": "WHA",
+      "catype": "GN",
+      "cityName": "芜湖",
+      "cityShortCode": "",
+      "countryName": "",
+      "countryName_py": ""
+    }, {"airportCode": "CQW", "airportName": "重庆武隆仙女山机场", "airport_py": "xiannvshan", "cityCode": "wulong", "city3code": "CQW", "catype": "GN", "cityName": "武隆", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "X": [{"airportCode": "XIY", "airportName": "咸阳国际机场", "airport_py": "xianyangguoji", "cityCode": "xian", "city3code": "XIY", "catype": "GN", "cityName": "西安", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "XIC", "airportName": "青山机场", "airport_py": "qingshan", "cityCode": "xichang", "city3code": "XIC", "catype": "GN", "cityName": "西昌", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "XNN",
+      "airportName": "曹家堡机场",
+      "airport_py": "caojiabao",
+      "cityCode": "xining",
+      "city3code": "XNN",
+      "catype": "GN",
+      "cityName": "西宁",
+      "cityShortCode": "xn1",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "XYI", "airportName": "永兴岛机场", "airport_py": "yongxingdao", "cityCode": "xishanqundao", "city3code": "XYI", "catype": "GN", "cityName": "西沙", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "JHG", "airportName": "嘎洒机场", "airport_py": "gasa", "cityCode": "xishuangbanna", "city3code": "JHG", "catype": "GN", "cityName": "西双版纳", "cityShortCode": "xsbn", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "XIL",
+      "airportName": "锡林浩特机场",
+      "airport_py": "xilinhaote",
+      "cityCode": "xilinhaote",
+      "city3code": "XIL",
+      "catype": "GN",
+      "cityName": "锡林浩特",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "XMN", "airportName": "高崎国际机场", "airport_py": "gaoqiguoji", "cityCode": "xiamen", "city3code": "XMN", "catype": "GN", "cityName": "厦门", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "GXH", "airportName": "夏河机场", "airport_py": "xiahe", "cityCode": "xiahe", "city3code": "GXH", "catype": "GN", "cityName": "夏河", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "XFN",
+      "airportName": "刘集机场",
+      "airport_py": "liuji",
+      "cityCode": "xiangyang",
+      "city3code": "XFN",
+      "catype": "GN",
+      "cityName": "襄阳",
+      "cityShortCode": "xy2",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "NLT", "airportName": "那拉提机场", "airport_py": "nalati", "cityCode": "xinyuan", "city3code": "NLT", "catype": "GN", "cityName": "新源", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "XEN", "airportName": "兴城机场", "airport_py": "xingcheng", "cityCode": "xingcheng", "city3code": "XEN", "catype": "GN", "cityName": "兴城", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "XIN",
+      "airportName": "兴宁机场",
+      "airport_py": "xingning",
+      "cityCode": "xingning",
+      "city3code": "XIN",
+      "catype": "GN",
+      "cityName": "兴宁",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "ACX", "airportName": "兴义机场", "airport_py": "xingyi", "cityCode": "xingyi", "city3code": "ACX", "catype": "GN", "cityName": "兴义", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "XNT", "airportName": "邢台褡裢机场", "airport_py": "xingtaizuozuo", "cityCode": "xingtai", "city3code": "XNT", "catype": "GN", "cityName": "邢台", "cityShortCode": "xt", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "XUZ",
+      "airportName": "观音机场",
+      "airport_py": "guanyin",
+      "cityCode": "xuzhou",
+      "city3code": "XUZ",
+      "catype": "GN",
+      "cityName": "徐州",
+      "cityShortCode": "xz1",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "WUT", "airportName": "五台山机场", "airport_py": "wutaishan", "cityCode": "xinzhou", "city3code": "WUT", "catype": "GN", "cityName": "忻州", "cityShortCode": "xz", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "XAI", "airportName": "明港机场", "airport_py": "minggangjichang", "cityCode": "xinyang", "city3code": "XAI", "catype": "GN", "cityName": "信阳", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}],
+    "Y": [{"airportCode": "YNT", "airportName": "蓬莱国际机场", "airport_py": "penglai", "cityCode": "yantai", "city3code": "YNT", "catype": "GN", "cityName": "烟台", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "YNZ", "airportName": "盐城机场", "airport_py": "yancheng", "cityCode": "yancheng", "city3code": "YNZ", "catype": "GN", "cityName": "盐城", "cityShortCode": "yc2", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "ENY",
+      "airportName": "南泥湾机场",
+      "airport_py": "nanniwanjichang",
+      "cityCode": "yanan",
+      "city3code": "ENY",
+      "catype": "GN",
+      "cityName": "延安",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "YNJ", "airportName": "朝阳川机场", "airport_py": "chaoyangchuan", "cityCode": "yanji", "city3code": "YNJ", "catype": "GN", "cityName": "延吉", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "YTY", "airportName": "扬州泰州机场", "airport_py": "yangzhoutaizhou", "cityCode": "yangzhou", "city3code": "YTY", "catype": "GN", "cityName": "扬州", "cityShortCode": "yz", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "LDS",
+      "airportName": "伊春机场",
+      "airport_py": "yichun",
+      "cityCode": "yichun2",
+      "city3code": "LDS",
+      "catype": "GN",
+      "cityName": "伊春",
+      "cityShortCode": "yc1",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "YIN", "airportName": "伊宁机场", "airport_py": "yining", "cityCode": "yining", "city3code": "YIN", "catype": "GN", "cityName": "伊宁", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "YIH", "airportName": "三峡机场", "airport_py": "sanxia", "cityCode": "yichang", "city3code": "YIH", "catype": "GN", "cityName": "宜昌", "cityShortCode": "yc4", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "YIC",
+      "airportName": "明月山机场",
+      "airport_py": "mingyueshan",
+      "cityCode": "yichun",
+      "city3code": "YIC",
+      "catype": "GN",
+      "cityName": "宜春",
+      "cityShortCode": "yc3",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "YIW", "airportName": "义乌机场", "airport_py": "yiwu", "cityCode": "yiwu", "city3code": "YIW", "catype": "GN", "cityName": "义乌", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "INC", "airportName": "河东机场", "airport_py": "hedong", "cityCode": "yinchuan", "city3code": "INC", "catype": "GN", "cityName": "银川", "cityShortCode": "yc5", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "LLF",
+      "airportName": "零陵机场",
+      "airport_py": "lingling",
+      "cityCode": "yongzhou",
+      "city3code": "LLF",
+      "catype": "GN",
+      "cityName": "永州",
+      "cityShortCode": "yz1",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "UYN", "airportName": "榆阳机场", "airport_py": "yuyang", "cityCode": "yulin2", "city3code": "UYN", "catype": "GN", "cityName": "榆林", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "YUS", "airportName": "玉树机场", "airport_py": "yushu", "cityCode": "yushu", "city3code": "YUS", "catype": "GN", "cityName": "玉树", "cityShortCode": "ys", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "YUA",
+      "airportName": "元谋机场",
+      "airport_py": "yuanmou",
+      "cityCode": "yuanmou",
+      "city3code": "YUA",
+      "catype": "GN",
+      "cityName": "元谋",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "YCU", "airportName": "张孝机场", "airport_py": "zhangxiao", "cityCode": "yuncheng", "city3code": "YCU", "catype": "GN", "cityName": "运城", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "YKH", "airportName": "营口兰旗机场", "airport_py": "yingkoulanqi", "cityCode": "yingkou", "city3code": "YKH", "catype": "GN", "cityName": "营口", "cityShortCode": "yk", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "YYA",
+      "airportName": "三荷机场",
+      "airport_py": "sanhe",
+      "cityCode": "yueyang",
+      "city3code": "YYA",
+      "catype": "GN",
+      "cityName": "岳阳",
+      "cityShortCode": "",
+      "countryName": "加拿大",
+      "countryName_py": ""
+    }, {"airportCode": "待定", "airportName": "三荷机场", "airport_py": "sanhejichang", "cityCode": "yueyang", "city3code": "YYA", "catype": "GN", "cityName": "岳阳", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "YNT1", "airportName": "蓬莱国际机场", "airport_py": "penglai", "cityCode": "yantai", "city3code": "YNT", "catype": "GN", "cityName": "蓬莱", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "YBP",
+      "airportName": "五粮液机场",
+      "airport_py": "wuliangyejichang",
+      "cityCode": "yibin",
+      "city3code": "YBP",
+      "catype": "GN",
+      "cityName": "宜宾",
+      "cityShortCode": "",
+      "countryName": "",
+      "countryName_py": ""
+    }, {"airportCode": "YLX", "airportName": "福绵机场", "airport_py": "fumianjichang", "cityCode": "yulin", "city3code": "YLX", "catype": "GN", "cityName": "玉林", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "YTW", "airportName": "万方机场", "airport_py": "yutian", "cityCode": "yutian", "city3code": "YTW", "catype": "GN", "cityName": "于田", "cityShortCode": "", "countryName": "", "countryName_py": ""}],
+    "Z": [{"airportCode": "ZHA", "airportName": "湛江机场", "airport_py": "zhanjiang", "cityCode": "zhanjiang", "city3code": "ZHA", "catype": "GN", "cityName": "湛江", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "DYG", "airportName": "荷花机场", "airport_py": "hehua", "cityCode": "zhangjiajie", "city3code": "DYG", "catype": "GN", "cityName": "张家界", "cityShortCode": "zjj", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "ZQZ",
+      "airportName": "张家口机场",
+      "airport_py": "zhangjiakou",
+      "cityCode": "zhangjiakou",
+      "city3code": "ZQZ",
+      "catype": "GN",
+      "cityName": "张家口",
+      "cityShortCode": "zjk",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "YZY", "airportName": "张掖甘州机场", "airport_py": "zhangyeganzhoujichang", "cityCode": "zhangye", "city3code": "YZY", "catype": "GN", "cityName": "张掖", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "ZAT", "airportName": "昭通机场", "airport_py": "zhaotong", "cityCode": "zhaotong", "city3code": "ZAT", "catype": "GN", "cityName": "昭通", "cityShortCode": "zt", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "CGO",
+      "airportName": "新郑国际机场",
+      "airport_py": "xinzhengguoji",
+      "cityCode": "zhengzhou",
+      "city3code": "CGO",
+      "catype": "GN",
+      "cityName": "郑州",
+      "cityShortCode": "zz2",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "ZHY", "airportName": "中卫香山机场", "airport_py": "zhongweixiangshan", "cityCode": "zhongwei", "city3code": "ZHY", "catype": "GN", "cityName": "中卫", "cityShortCode": "zw", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "HSN", "airportName": "普陀山机场", "airport_py": "putuoshan", "cityCode": "zhoushan", "city3code": "HSN", "catype": "GN", "cityName": "舟山", "cityShortCode": "zs", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "ZUH",
+      "airportName": "金湾机场",
+      "airport_py": "jinwan",
+      "cityCode": "zhuhai",
+      "city3code": "ZUH",
+      "catype": "GN",
+      "cityName": "珠海",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "ZYI", "airportName": "遵义新舟机场", "airport_py": "zunyi", "cityCode": "zunyi", "city3code": "ZYI", "catype": "GN", "cityName": "遵义", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {"airportCode": "NZL", "airportName": "扎兰屯成吉思汗机场", "airport_py": "zhalantunchengjisihan", "cityCode": "zhalantun", "city3code": "NZL", "catype": "GN", "cityName": "扎兰屯", "cityShortCode": "", "countryName": "中国", "countryName_py": "ZHONGGUO"}, {
+      "airportCode": "WMT",
+      "airportName": "茅台机场",
+      "airport_py": "xinzhoujichang",
+      "cityCode": "zunyimaotai",
+      "city3code": "ZYI",
+      "catype": "GN",
+      "cityName": "遵义茅台",
+      "cityShortCode": "",
+      "countryName": "中国",
+      "countryName_py": "ZHONGGUO"
+    }, {"airportCode": "ZD1", "airportName": "肇东北大荒通用机场", "airport_py": "beidahuangtongyongjichang", "cityCode": "zhaodong", "city3code": "ZD1", "catype": "GN", "cityName": "肇东", "cityShortCode": "", "countryName": "", "countryName_py": ""}, {"airportCode": "ZUJ", "airportName": "大路通用机场", "airport_py": "dalutongyong", "cityCode": "zhenjiang", "city3code": "ZUJ", "catype": "GN", "cityName": "镇江", "cityShortCode": "", "countryName": "", "countryName_py": ""}]
+  }
+  titles = []
+
+  constructor() {
+    super(...arguments)
+    this.state = {
+      testArr: [],
+      test: [],
+      showDate: {
+        date: "2021-06-27",
+        day: 27,
+        month: 6,
+        monthStr: "六月",
+        week: 0,
+        weekStr: "日",
+        year: 2021
+      },
+      monthParaArr:[]
+    }
+  }
+
+
+  componentWillMount() {
+  }
+
+  componentDidMount() {
+    for (let i = 0; i < 26; i++) {
+      this.titles.push(String.fromCharCode(65 + i))
+    }
+
+    this.setState({showDate: {}}, () => {
+      let s = ["2021-06", "2021-07", "2021-08"]
+      let b = [{"year": 2021, "month": 6, "day": 24, "week": 4, "date": "2021-06-24", "monthStr": "六月", "weekStr": "今天", "indexFlag": 0}, {"year": 2021, "month": 6, "day": 25, "week": 5, "date": "2021-06-25", "monthStr": "六月", "weekStr": "明天", "indexFlag": 1}, {"year": 2021, "month": 6, "day": 26, "week": 6, "date": "2021-06-26", "monthStr": "六月", "weekStr": "后天", "indexFlag": 2}, {
+        "year": 2021,
+        "month": 6,
+        "day": 27,
+        "week": 0,
+        "date": "2021-06-27",
+        "monthStr": "六月",
+        "weekStr": "日",
+        "indexFlag": 3
+      }, {"year": 2021, "month": 6, "day": 28, "week": 1, "date": "2021-06-28", "monthStr": "六月", "weekStr": "一", "indexFlag": 4}, {"year": 2021, "month": 6, "day": 29, "week": 2, "date": "2021-06-29", "monthStr": "六月", "weekStr": "二", "indexFlag": 5}, {"year": 2021, "month": 6, "day": 30, "week": 3, "date": "2021-06-30", "monthStr": "六月", "weekStr": "三", "indexFlag": 6}, {
+        "year": 2021,
+        "month": 7,
+        "day": 1,
+        "week": 4,
+        "date": "2021-07-01",
+        "monthStr": "七月",
+        "weekStr": "四",
+        "indexFlag": 7
+      }, {"year": 2021, "month": 7, "day": 2, "week": 5, "date": "2021-07-02", "monthStr": "七月", "weekStr": "五", "indexFlag": 8}, {"year": 2021, "month": 7, "day": 3, "week": 6, "date": "2021-07-03", "monthStr": "七月", "weekStr": "六", "indexFlag": 9}, {"year": 2021, "month": 7, "day": 4, "week": 0, "date": "2021-07-04", "monthStr": "七月", "weekStr": "日", "indexFlag": 10}, {
+        "year": 2021,
+        "month": 7,
+        "day": 5,
+        "week": 1,
+        "date": "2021-07-05",
+        "monthStr": "七月",
+        "weekStr": "一",
+        "indexFlag": 11
+      }, {"year": 2021, "month": 7, "day": 6, "week": 2, "date": "2021-07-06", "monthStr": "七月", "weekStr": "二", "indexFlag": 12}, {"year": 2021, "month": 7, "day": 7, "week": 3, "date": "2021-07-07", "monthStr": "七月", "weekStr": "三", "indexFlag": 13}, {"year": 2021, "month": 7, "day": 8, "week": 4, "date": "2021-07-08", "monthStr": "七月", "weekStr": "四", "indexFlag": 14}, {
+        "year": 2021,
+        "month": 7,
+        "day": 9,
+        "week": 5,
+        "date": "2021-07-09",
+        "monthStr": "七月",
+        "weekStr": "五",
+        "indexFlag": 15
+      }, {"year": 2021, "month": 7, "day": 10, "week": 6, "date": "2021-07-10", "monthStr": "七月", "weekStr": "六", "indexFlag": 16}, {"year": 2021, "month": 7, "day": 11, "week": 0, "date": "2021-07-11", "monthStr": "七月", "weekStr": "日", "indexFlag": 17}, {"year": 2021, "month": 7, "day": 12, "week": 1, "date": "2021-07-12", "monthStr": "七月", "weekStr": "一", "indexFlag": 18}, {
+        "year": 2021,
+        "month": 7,
+        "day": 13,
+        "week": 2,
+        "date": "2021-07-13",
+        "monthStr": "七月",
+        "weekStr": "二",
+        "indexFlag": 19
+      }, {"year": 2021, "month": 7, "day": 14, "week": 3, "date": "2021-07-14", "monthStr": "七月", "weekStr": "三", "indexFlag": 20}, {"year": 2021, "month": 7, "day": 15, "week": 4, "date": "2021-07-15", "monthStr": "七月", "weekStr": "四", "indexFlag": 21}, {"year": 2021, "month": 7, "day": 16, "week": 5, "date": "2021-07-16", "monthStr": "七月", "weekStr": "五", "indexFlag": 22}, {
+        "year": 2021,
+        "month": 7,
+        "day": 17,
+        "week": 6,
+        "date": "2021-07-17",
+        "monthStr": "七月",
+        "weekStr": "六",
+        "indexFlag": 23
+      }, {"year": 2021, "month": 7, "day": 18, "week": 0, "date": "2021-07-18", "monthStr": "七月", "weekStr": "日", "indexFlag": 24}, {"year": 2021, "month": 7, "day": 19, "week": 1, "date": "2021-07-19", "monthStr": "七月", "weekStr": "一", "indexFlag": 25}, {"year": 2021, "month": 7, "day": 20, "week": 2, "date": "2021-07-20", "monthStr": "七月", "weekStr": "二", "indexFlag": 26}, {
+        "year": 2021,
+        "month": 7,
+        "day": 21,
+        "week": 3,
+        "date": "2021-07-21",
+        "monthStr": "七月",
+        "weekStr": "三",
+        "indexFlag": 27
+      }, {"year": 2021, "month": 7, "day": 22, "week": 4, "date": "2021-07-22", "monthStr": "七月", "weekStr": "四", "indexFlag": 28}, {"year": 2021, "month": 7, "day": 23, "week": 5, "date": "2021-07-23", "monthStr": "七月", "weekStr": "五", "indexFlag": 29}, {"year": 2021, "month": 7, "day": 24, "week": 6, "date": "2021-07-24", "monthStr": "七月", "weekStr": "六", "indexFlag": 30}, {
+        "year": 2021,
+        "month": 7,
+        "day": 25,
+        "week": 0,
+        "date": "2021-07-25",
+        "monthStr": "七月",
+        "weekStr": "日",
+        "indexFlag": 31
+      }, {"year": 2021, "month": 7, "day": 26, "week": 1, "date": "2021-07-26", "monthStr": "七月", "weekStr": "一", "indexFlag": 32}, {"year": 2021, "month": 7, "day": 27, "week": 2, "date": "2021-07-27", "monthStr": "七月", "weekStr": "二", "indexFlag": 33}, {"year": 2021, "month": 7, "day": 28, "week": 3, "date": "2021-07-28", "monthStr": "七月", "weekStr": "三", "indexFlag": 34}, {
+        "year": 2021,
+        "month": 7,
+        "day": 29,
+        "week": 4,
+        "date": "2021-07-29",
+        "monthStr": "七月",
+        "weekStr": "四",
+        "indexFlag": 35
+      }, {"year": 2021, "month": 7, "day": 30, "week": 5, "date": "2021-07-30", "monthStr": "七月", "weekStr": "五", "indexFlag": 36}, {"year": 2021, "month": 7, "day": 31, "week": 6, "date": "2021-07-31", "monthStr": "七月", "weekStr": "六", "indexFlag": 37}, {"year": 2021, "month": 8, "day": 1, "week": 0, "date": "2021-08-01", "monthStr": "八月", "weekStr": "日", "indexFlag": 38}, {
+        "year": 2021,
+        "month": 8,
+        "day": 2,
+        "week": 1,
+        "date": "2021-08-02",
+        "monthStr": "八月",
+        "weekStr": "一",
+        "indexFlag": 39
+      }, {"year": 2021, "month": 8, "day": 3, "week": 2, "date": "2021-08-03", "monthStr": "八月", "weekStr": "二", "indexFlag": 40}, {"year": 2021, "month": 8, "day": 4, "week": 3, "date": "2021-08-04", "monthStr": "八月", "weekStr": "三", "indexFlag": 41}, {"year": 2021, "month": 8, "day": 5, "week": 4, "date": "2021-08-05", "monthStr": "八月", "weekStr": "四", "indexFlag": 42}, {
+        "year": 2021,
+        "month": 8,
+        "day": 6,
+        "week": 5,
+        "date": "2021-08-06",
+        "monthStr": "八月",
+        "weekStr": "五",
+        "indexFlag": 43
+      }, {"year": 2021, "month": 8, "day": 7, "week": 6, "date": "2021-08-07", "monthStr": "八月", "weekStr": "六", "indexFlag": 44}, {"year": 2021, "month": 8, "day": 8, "week": 0, "date": "2021-08-08", "monthStr": "八月", "weekStr": "日", "indexFlag": 45}, {"year": 2021, "month": 8, "day": 9, "week": 1, "date": "2021-08-09", "monthStr": "八月", "weekStr": "一", "indexFlag": 46}, {
+        "year": 2021,
+        "month": 8,
+        "day": 10,
+        "week": 2,
+        "date": "2021-08-10",
+        "monthStr": "八月",
+        "weekStr": "二",
+        "indexFlag": 47
+      }, {"year": 2021, "month": 8, "day": 11, "week": 3, "date": "2021-08-11", "monthStr": "八月", "weekStr": "三", "indexFlag": 48}]
+      this.setState({b}, () => {
+        console.log('setState之后的b:', this.state.b)
+      })
+
+      console.log('tempDateInfoArr:', JSON.stringify(b));
+      console.log('tempMonthParaArr:', JSON.stringify(s))
+      this.setState({dateInfoArr: b, monthParaArr: s}, () => {
+        console.log('dateInfoArr:', this.state.dateInfoArr)
+        console.log('monthParaArr:', this.state.monthParaArr)
+        console.log('tempMonthParaArr:', b)
+      })
+    })
+  }
+
+  showMenu = () => {
+    let index = parseInt(Math.random() * 26, 10)
+    this.setState({testArr: this.arr[this.titles[index]] || []})
+  }
+
+  componentDidShow() {
+  }
+
+  componentDidHide() {
+  }
+
+  componentDidCatchError() {
+  }
+
+  render() {
+    let {testArr,monthParaArr} = this.state
+    // console.log('render testArr:', testArr)
+    return (
+      <View>
+        <Text onClick={this.showMenu} style='background-color:red;width:200rpx;height:200rpx'>click here size:{testArr.length}</Text>
+        <Text>{monthParaArr}</Text>
+        {/*<View>*/}
+        {testArr.length > 0 && testArr.map(item => {
+          return (
+            <View key={item.airportName}>{item.airportName}</View>
+          )
+        })}
+        {/*</View>*/}
+      </View>
+    )
+  }
+}
