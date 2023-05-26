@@ -1,0 +1,59 @@
+import {Button, ScrollView, Text, View} from "@tarojs/components";
+import React, {useEffect, useRef, useState} from "react";
+import Taro, {Current, useDidShow, usePullDownRefresh, useReachBottom, useReady} from "@tarojs/taro";
+import {pxTransform} from "taro-ui/dist/weapp/common/utils";
+
+/**
+ *
+ **/
+const index = (props) => {
+    const [datas, setDatas] = useState(Array(20).fill(0))
+    const [showPop, setShowPop] = useState(false)
+
+    const myStyle = {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        zIndex: 100,
+        left: 0,
+        right: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        flexDirection: 'column',
+    }
+    useDidShow(() => {
+
+    })
+
+    return (
+        <>
+            <Text style={{fontSize: 30}} onClick={() => {
+                setShowPop(!showPop)
+            }}>show pop</Text>
+            <ScrollView style={{height: 600}} nestedScrollEnabled={true}>
+                {datas.map((item, index) => {
+                    return (
+                        <View style={{width: 750, height: 200, backgroundColor: index % 2 == 0 ? 'red' : 'blue'}} key={index}>{index}</View>
+                    )
+                })}
+            </ScrollView>
+            {showPop && <View style={myStyle} onClick={() => {
+                setShowPop(!showPop)
+            }}>
+                <View style={{backgroundColor: 'white', width: pxTransform(700), height: 300}}>
+                    <ScrollView style={{backgroundColor: 'white', height: 300, marginTop: 30}}>
+                        {datas.map((item, index) => {
+                            return (
+                                <View style={{width: 750, height: 50, backgroundColor: index % 2 == 0 ? 'green' : 'yellow'}} key={index}>{index}</View>
+                            )
+                        })}
+                    </ScrollView>
+                </View>
+
+            </View>}
+        </>
+    )
+}
+export default index
